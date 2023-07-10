@@ -1,0 +1,51 @@
+﻿@page
+@model WebAppRazorPagesPV114.Pages.Movies.ListMoviesModel
+@{
+    int a = 45;
+    int b = 65;
+    string[] arrMovie = { "Harry Potter", "Harry Potter 2" };
+    int currentHour = DateTime.Now.Hour;
+}
+@functions{
+    public int Suma(int a, int b)
+    {
+        return a + b;     
+    }
+
+
+}
+<h1 class="text-end">@Model.UserName</h1>
+<h2 class="text-end">@Model.PrintHello()</h2>
+<p> Time now: @DateTime.Now.ToLongDateString()</p>
+@if (currentHour < 12)
+{
+    <h3>Good Morning!</h3>
+}
+else if (currentHour < 17)
+{
+    <h3>Good Day!</h3>
+}
+else if (currentHour<22)
+{
+    <h3>Good Evening!</h3>
+    @*Output text with @: *@
+    @: Good Evening!
+}
+else
+{
+    <h3>Good Bay!</h3>
+}
+
+<p> @a + @b =@(a + b)</p>
+<p> @a + @b =@Suma(a,b)</p>
+<p> 25 + 35 =@Suma(25,35)</p>
+<h4 class="text-center">Movies</h4>
+<ul class="list-group">
+    @for(var i=0; i<arrMovie.Length; i++)
+    {
+        <li class="list-group-item list-group-item-success">@arrMovie[i]</li>
+    }
+</ul>
+
+
+
